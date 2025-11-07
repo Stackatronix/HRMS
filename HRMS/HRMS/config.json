@@ -1,0 +1,29 @@
+{
+    "organization":{
+        "name":"Tech Solutions Inc.",
+        "address":"1234 Innovation Drive, Tech City, TX 75001",
+        "email":"info@techsolutions.com"
+    },
+
+    "leave":{
+        "sick":12,
+        "casual":6
+    },
+    "payment":{
+        "overtime":500
+    },
+    "departments":[
+        ["Human Resources","HR"],
+        ["Engineering","ENG"],
+        ["Marketing","MKT"],
+        ["Sales","SAL"],
+        ["Customer Support","CS"],
+        ["Information Technology","IT"]
+    ],
+    "work_hours":{
+        "start":"09:00",
+        "end":"17:00"
+    },
+    "working_days_per_week":5
+    
+}

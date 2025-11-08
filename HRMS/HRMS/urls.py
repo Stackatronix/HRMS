@@ -28,7 +28,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     schema_view = views.get_schema_view(
     openapi.Info(
-      title="My Project API",
+      title="HRMS API",
       default_version='v1',
       description="API documentation",
    ),

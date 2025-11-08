@@ -18,5 +18,5 @@ urlpatterns = [
     path("auth/login/", UserLoginView.as_view(), name="login"),
     path("auth/logout/", UserLogoutView.as_view(), name="logout"),
     path("auth/refresh/", CookieTokenRefreshView.as_view(), name="refresh-token"),
-    path("auth/verify-otp/", verify_otp, name="verify-otp"),
+    path("auth/verify-otp/", VerifyOTPView.as_view(), name="verify-otp"),
 ]

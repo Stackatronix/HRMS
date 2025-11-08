@@ -142,7 +142,6 @@ class Attendance(models.Model):
     def overtime_hours(self):
         return max(0.0, self.hours_worked - get_work_hours())
 
-
 class LeaveRequest(models.Model):
     STATUS = [
         ("PENDING", "Pending"),

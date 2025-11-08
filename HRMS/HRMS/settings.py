@@ -148,7 +148,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -170,3 +170,19 @@ try:
         COMPANY_CONFIG = json.load(file)
 except Exception as e:
     print(f"Error loading config.json: {e}")
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False, 
+    'SECURITY_DEFINITIONS': {
+        'cookieAuth': {
+            'type': 'apiKey',
+            'in': 'cookie',
+            'name': 'access_token',  
+            'description': 'JWT stored in HttpOnly access_token cookie'
+        }
+    },
+    "USE_SESSION_AUTH": False,
+    'DEFAULT_API_CLIENT_CONFIG': {
+        'withCredentials': True,  
+    }
+}

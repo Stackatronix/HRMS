@@ -79,6 +79,8 @@ def generate_payslip_background(payroll_id):
     try:
         payroll = Payroll.objects.get(id=payroll_id)
         generate_payslip_docx(payroll)
+        payroll.is_generating = False
+        payroll.save()
     except Exception as e:
         Payroll.objects.filter(id=payroll_id).update(is_generating=False)
         print(f"Payslip generation failed for Payroll ID {payroll_id} – {e}")

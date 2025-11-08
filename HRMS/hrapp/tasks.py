@@ -77,9 +77,10 @@ def async_generate_payroll(period_id, task_name=None):
 @background(schedule=5)
 def generate_payslip_background(payroll_id):
     try:
-        payroll = Payroll.objects.get(id=payroll_id, is_generating=False)
+        payroll = Payroll.objects.get(id=payroll_id)
         generate_payslip_docx(payroll)
     except Exception as e:
+        Payroll.objects.filter(id=payroll_id).update(is_generating=False)
         print(f"Payslip generation failed for Payroll ID {payroll_id} – {e}")
 
 @background(schedule=3600)

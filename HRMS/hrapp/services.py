@@ -11,8 +11,6 @@ def generate_payslip_docx(payroll, template_rel_path="templates/payslip_template
     template_path = template_rel_path
     if not os.path.isabs(template_path):
         template_path = os.path.join(settings.BASE_DIR, template_rel_path)
-    payroll.is_generating = True
-    payroll.save()
     try:
         emp = payroll.employee
         period = payroll.period
@@ -63,8 +61,6 @@ def generate_payslip_docx(payroll, template_rel_path="templates/payslip_template
     except Exception as e:
         raise e
     finally:
-        payroll.is_generating = False
-        payroll.save()
         try:
             os.unlink(doc_tmp.name)
         except Exception:
